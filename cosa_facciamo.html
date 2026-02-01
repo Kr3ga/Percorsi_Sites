@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COSA FACCIAMO - PERCORSI</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #fff;
+    }
+    /* Navbar */
+    nav {
+      background-color: #983128;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 35px;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+      z-index: 1;
+    }
+    nav ul li a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(86,0,20,0.7); /* rosso sangue scurissimo con trasparenza */
+      z-index: -1;
+      transition: width 0.4s cubic-bezier(.4,0,.2,1);
+      border-radius: 8px;
+    }
+    nav ul li a:hover::before {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+    nav ul li a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    /* Banner */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      display: block;
+      margin-top: 60px; /* spazio per navbar fissa */
+    }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .logo-banner {
+      position: absolute;
+      top: 30px;
+      right: 90%;
+      height: 80px;
+      z-index: 10;
+    }
+    .scroll-button {
+      position: absolute;
+      bottom: 60px;
+      left: 78%;
+      transform: translateX(-50%);
+      background-color: white;
+      color: black;
+      padding: 20px 40px;
+      font-size: 30px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .scroll-button:hover {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    /* Banner testo */
+    .text-container {
+      position: absolute;
+      top: 55%;
+      left: 80%;
+      transform: translateX(-50%);
+      color: #fff;
+      max-width: 300px;
+      font-family: Arial, sans-serif;
+      z-index: 11;
+    }
+    /* Fade-in effetto */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Box attività */
+    .box-attivita {
+      background-color: #983128;
+      color: #fff;
+      font-size: 30px;
+      padding: 20px 30px;
+      margin: 30px auto;
+      width: fit-content;
+      max-width: 90%;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      position: relative;
+      transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1);
+      /* AGGIUNTO effetto gonfia+ombra come il bottone */
+    }
+    .box-attivita:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(86,0,20,0.25), 0 1.5px 8px rgba(0,0,0,0.13);
+      z-index: 2;
+    }
+    .box-attivita summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #fff;
+      font-size: 30px;
+      padding: 10px 0;
+      outline: none;
+    }
+    .box-attivita[open] summary {
+      color: #ffd6c7;
+    }
+    .box-attivita details {
+      margin-top: 10px;
+      color: #fff;
+      font-size: 22px;
+      text-align: left;
+      background: rgba(0,0,0,0.04);
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    .attivita-list-container {
+      margin: 60px auto 40px auto;
+      max-width: 800px;
+      padding: 0 16px;
+      color: #fff;
+    }
+    h1 {
+      color: #fff;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 70px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    @media(max-width: 600px) {
+      nav ul li a { font-size: 22px;}
+      .box-attivita, .box-attivita summary { font-size: 22px;}
+      h1 { font-size: 42px;}
+      .scroll-button { font-size: 18px; padding: 10px 18px;}
+    }
+    footer {
+      background-color: #983128;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 22px;
+      margin-top: 60px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi_siamo.html">Chi Siamo</a></li>
+      <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner + logo + bottone + testo -->
+  <div class="banner-container">
+    <img src="Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />
+    <!-- Logo dentro il banner -->
+    <img src="logo_Percorsi.jpg" alt="Logo Percorsi" style="
+      position: absolute;
+      top: 30px;
+      right: 90%;
+      height: 80px;
+      z-index: 10;
+    " />
+    <!-- Bottone scroll -->
+    <a href="#contenuto" class="scroll-button">Scopri di più</a>
+    <!-- Testi zona rossa -->
+    <div class="text-container">
+      <h2 style="margin: 0 0 10px 0; font-size: 40px; font-weight: bold;">Cosa Facciamo</h2>
+      <p style="margin: 0; font-size: 20px;">
+        In questa sezione scoprirai di cosa ci occupiamo.
+        Per saperne di più cliccare sulla freccia a inizio testo!
+      </p>
+    </div>
+  </div>
+
+  <!-- Punto di scroll per il tasto "Scopri di più" -->
+  <div id="contenuto"></div>
+
+  <!-- Contenuto con effetto dissolvenza / COSA FACCIAMO-->
+  <div class="fade-in">
+    <div class="attivita-list-container">
+
+      <details class="box-attivita">
+        <summary><u>Corsi di formazione per docenti</u></summary>
+        <div>
+          Organizziamo <b>corsi di formazione</b>, soprattutto per docenti della scuola secondaria (primo e secondo grado), esclusivamente in convenzione con gli Istituti Scolastici che ne fanno richiesta.
+          Proponiamo pacchetti in base alle singole esigenze, attraverso formatori esperti in <b>lingue e letterature straniere (soprattutto orientali), storia e filosofia, diritto ed economia, tecniche di comunicazione, educazione civica, scienze umane</b>.
+        </div>
+      </details>
+
+      <details class="box-attivita">
+        <summary><u>Percorsi didattici trasversali</u></summary>
+        <div>
+          Progettiamo <b>percorsi didattici relativi all’Educazione Civica</b> e/o alle competenze trasversali rivolti agli studenti delle scuole secondarie di secondo grado,
+          attraverso <b>laboratori, workshop, incontri con docenti universitari finalizzati all’orientamento in uscita</b>, in collaborazione con gli istituti scolastici
+          e con gli enti di formazioni professionale nell’ambito di insegnamenti curriculari ed extracurricolari.
+        </div>
+      </details>
+
+      <details class="box-attivita">
+        <summary><u>Progettazione didattica e strategica</u></summary>
+        <div>
+        Svolgiamo in collaborazione con altri Enti, <b>attività di progettazione finalizzata alla realizzazione di iniziative
+        per la promozione del territorio, della comunità</b>, con particolare riferimento a quella educativa e scolastica
+        e alla valorizzazione del patrimonio culturale, anche attraverso <u>la partecipazione a bandi</u>.
+        </div>
+      </details>
+
+      <details class="box-attivita">
+        <summary><u>Eventi culturali</u></summary>
+        <div>
+          Organizziamo eventi culturali <b>gratuiti</b> di vario genere, tra cui presentazioni di <b>libri, incontri con gli autori, dibattiti, convegni, conferenze, seminari,
+          workshop su tematiche di attualità</b>, legate alle principali finalità dell’Associazione (<i>storia, geopolitica, economia, antropologia, linguistica e letteratura</i>),
+          invitando relatori di fama nazionale e talvolta internazionale, con la moderazione e il coordinamento dei nostri soci, esperti nei vari ambiti.
+        </div>
+      </details>
+
+      <details class="box-attivita">
+        <summary><u>Comunicazione digitale</u></summary>
+        <div>
+          Promuoviamo, soprattutto attraverso i <a href="Contatti.html" style="color: #fff; text-decoration: underline;">social network</a>, le <b>attività culturali realizzate sul territorio, con redazione di comunicati stampa,
+          diffusione di locandine e altri materiali informativi</b>, talvolta con l’ausilio di soggetti esperti in <i>strategic planning</i>,
+          per la realizzazione di campagne promozionali per la copertura di tutto corso degli eventi organizzati.
+        </div>
+      </details>
+
+      <details class="box-attivita">
+        <summary><u>Progetti editoriali</u></summary>
+        <div>
+          Collaboriamo a <b>progetti editoriali e pubblicazioni legate ad atti di convegni, iniziative pubbliche, raccolte di contributi a seguito di eventi culturali</b>;
+          abbiamo realizzato contributi, saggi e articoli di approfondimento, in partnership con editori quali <i>Pandora Rivista e Edizioni Epoké</i>.
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2025 PerCorsi – Tutti i diritti riservati.<br>
+    <a href="contatti.html">Contattaci</a>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>

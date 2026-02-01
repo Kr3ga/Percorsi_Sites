@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventi Passati</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #983128;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 35px;
+      font-weight: bold;
+      padding: 8px 20px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+      z-index: 1;
+    }
+    nav ul li a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(86,0,20,0.7); /* rosso sangue scurissimo con trasparenza */
+      z-index: -1;
+      transition: width 0.4s cubic-bezier(.4,0,.2,1);
+      border-radius: 8px;
+    }
+    nav ul li a:hover::before {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+    nav ul li a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Banner */
+    .banner-container {
+      position: relative;
+      width: 100%;
+      display: block;
+      margin-top: 60px; /* spazio per navbar fissa */
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .scroll-button {
+      position: absolute;
+      bottom: 60px;
+      left: 78%;
+      transform: translateX(-50%);
+      background-color: white;
+      color: black;
+      padding: 20px 40px;
+      font-size: 30px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
+    .scroll-button:hover {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+
+    /* Fade-in effetto */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  footer {
+    background-color: #983128;
+    color: #fff;
+    text-align: center;
+    padding: 30px 10px;
+    font-size: 22px;
+    margin-top: 60px;
+  }
+  footer a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: bold;
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="chi_siamo.html">Chi Siamo</a></li>
+      <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+      <li><a href="partner.html">Partner</a></li>
+      <li><a href="contatti.html">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- Banner + logo + bottone + testo -->
+  <div class="banner-container">
+    <img src="Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />
+
+    <!-- Logo dentro il banner -->
+    <img src="logo_Percorsi.jpg" alt="Logo Percorsi" style="
+      position: absolute;
+      top: 30px;
+      right: 90%;
+      height: 80px;
+      z-index: 10;
+    " />
+
+    <!-- Bottone scroll -->
+    <a href="#contenuto" class="scroll-button">Scopri di più</a>
+
+    <!-- Testi zona rossa -->
+    <div class="text-container" style="
+      position: absolute;
+      top: 55%;
+      left: 80%;
+      transform: translateX(-50%);
+      color: white;
+      max-width: 300px;
+      font-family: Arial, sans-serif;
+      z-index: 11;
+    ">
+      <h2 style="margin: 0 0 10px 0; font-size: 40px; font-weight: bold;">Eventi Passati</h2>
+      <p style="margin: 0; font-size: 20px;">
+        Il cammino dell’associazione attraverso le iniziative realizzate.Tuffatevi alla scoperta del nostro percorso
+      </p>
+    </div>
+  </div>
+
+  <!-- Contenuto con effetto dissolvenza -->
+  <div id="contenuto" class="fade-in" style="padding: 80px 20px;">
+    <!-- Qui puoi aggiungere il contenuto -->
+  </div>
+
+  <footer>
+    © 2025 PerCorsi – Tutti i diritti riservati.<br>
+    <a href="contatti.html">Contattaci</a>
+  </footer>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
