@@ -4,139 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PARTNER - PERCORSI</title>
-  <link rel="stylesheet" href="stile.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #fff;
-      background-color: #fff;
-    }
-
-    /* Navbar */
-    nav {
-      background-color: #983128;
-      display: flex;
-      justify-content: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 10px 0;
-      display: flex;
-      gap: 30px;
-    }
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 35px;
-      font-weight: bold;
-      padding: 8px 20px;
-      border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.3s;
-      z-index: 1;
-    }
-    /* evidenziatore (hover) */
-    nav ul li a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 100%;
-      background: rgba(86,0,20,0.7); /* rosso sangue scurissimo con trasparenza */
-      z-index: -1;
-      transition: width 0.4s cubic-bezier(.4,0,.2,1);
-      border-radius: 8px;
-    }
-    nav ul li a:hover::before { width: 100%; left: 0; right: auto; }
-    nav ul li a:hover { color: #fff; text-decoration: none; }
-
-    /* Banner */
-    .banner-container {
-      position: relative;
-      width: 100%;
-      display: block;
-      margin-top: 60px; /* spazio per navbar fissa */
-    }
-    .banner { width: 100%; height: auto; display: block; }
-    .logo-banner {
-      position: absolute;
-      top: 30px;
-      right: 90%;
-      height: 80px;
-      z-index: 10;
-    }
-    .scroll-button {
-      position: absolute;
-      bottom: 60px;
-      left: 78%;
-      transform: translateX(-50%);
-      background-color: white;
-      color: black;
-      padding: 20px 40px;
-      font-size: 30px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-    .scroll-button:hover { background-color: #f0f0f0; color: #333; }
-    .text-container {
-      position: absolute;
-      top: 55%;
-      left: 80%;
-      transform: translateX(-50%);
-      color: #fff;
-      max-width: 300px;
-      font-family: Arial, sans-serif;
-      z-index: 11;
-    }
-
-    /* --- Gallery section --- */
+    /* --- Gallery section (CSS Grid) --- */
     .gallery {
       max-width: 1200px;
       margin: 40px auto;
       padding: 16px;
-      background: #fff; /* white area under banner */
+      background: #fff; 
       color: #000;
       box-sizing: border-box;
-    }
-
-    .gallery-row {
-      display: flex;
+      
+      /* Trasformiamo il contenitore in una griglia fluida */
+      display: grid;
+      /* auto-fit adatta il numero di colonne. minmax stabilisce che i box non saranno mai più stretti di 220px, ma possono espandersi (1fr) */
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
-      margin-bottom: 16px;
-      justify-content: center;
-      align-items: stretch;
-    }
-
-    /* Per le righe con 4 elementi */
-    .gallery-row.four .photo-box {
-      flex: 0 0 calc((100% - 3 * 16px) / 4); /* 4 boxes with 3 gaps */
     }
 
     .photo-box {
       background: #efefef;
       border-radius: 8px;
       overflow: hidden;
-      height: 160px; /* temporanea, modifichiamo dopo */
+      height: 160px; /* Altezza fissa per uniformità */
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     /* effetto 'gonfia + ombra' on hover */
@@ -146,140 +44,123 @@
       z-index: 2;
     }
 
+    .photo-box a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .photo-box img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: contain; /* Mantiene le proporzioni del logo senza tagliarlo */
       display: block;
       background: #fff;
+      padding: 10px; /* Aggiunge un po' di respiro ai loghi */
+      box-sizing: border-box;
     }
-
-    /* responsive: su schermi stretti riduci colonne e impila */
-    @media (max-width: 1000px) {
-      .gallery-row.four .photo-box { flex: 0 0 calc((100% - 3 * 12px) / 4); }
-    }
-    @media (max-width: 800px) {
-      .gallery-row.four .photo-box { flex: 0 0 calc((100% - 2 * 12px) / 3); }
-    }
-    @media (max-width: 600px) {
-      .gallery-row.four .photo-box { flex: 0 0 calc((100% - 1 * 12px) / 2); }
-    }
-    @media (max-width: 420px) {
-      .gallery-row.four .photo-box { flex: 0 0 100%; }
-    }
-
-    footer {
-      background-color: #983128;
-      color: #fff;
-      text-align: center;
-      padding: 30px 10px;
-      font-size: 22px;
-      margin-top: 16px;
-    }
-    footer a { color: #fff; text-decoration: underline; font-weight: bold; }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chi_siamo.html">Chi Siamo</a></li>
-      <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
-      <li><a href="eventi.html">Eventi</a></li>
-      <li><a href="partner.html">Partner</a></li>
-      <li><a href="contatti.html">Contatti</a></li>
-    </ul>
+    <div class="nav-container">
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Apri menu">☰</button>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi_siamo.html">Chi Siamo</a></li>
+        <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
+        <li><a href="eventi.html">Eventi</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- Banner + logo + bottone + testo -->
+  <!-- Banner Container -->
   <div class="banner-container">
-    <img src="Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />
-    <img src="logo_Percorsi.jpg" alt="Logo Percorsi" class="logo-banner" />
-    <a href="#contenuto" class="scroll-button">Scopri di più</a>
+    <img src="immagini/Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />
+   
+    <!-- Contenitore Testo e Bottone (gestito fluidamente da style.css) -->
     <div class="text-container">
-      <h2 style="margin: 0 0 10px 0; font-size: 40px; font-weight: bold;">Partner</h2>
-      <p style="margin: 0; font-size: 20px;">
+      <h2>Partner</h2>
+      <p>
         Scopri i partner dell'Associazione PerCorsi.<br />
         Collaborazioni, network e sinergie.
+      <a href="#contenuto" class="scroll-button">Scopri di più</a>
       </p>
+      
     </div>
   </div>
 
-  <main id="contenuto">
-    <!-- Gallery: sotto il banner, nello spazio bianco, prima del footer -->
-    <section class="gallery" aria-label="Galleria Partner / Foto">
-      <!-- RIGA 1: 4 foto -->
-      <div class="gallery-row four" role="list">
-        <div class="photo-box" role="listitem">
-          <a href="https://www.treccanilibri.it" target="_blank" rel="noopener">
-            <img src="Treccani_Libri_logo.png" alt="Treccani Libri logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://edizioniepoke.it" target="_blank" rel="noopener">
-            <img src="Edizioni_Epoké_logo.png" alt="Edizioni Epoké logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://www.amaldinovi.edu.it" target="_blank" rel="noopener">
-            <img src="Liceo_Amaldi_Novi_logo.png" alt="Liceo Amaldi Novi logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://www.istitutobalbo.edu.it" target="_blank" rel="noopener">
-            <img src="Istituto_Balbo_logo.png" alt="Istituto Balbo logo" loading="lazy" />
-          </a>
-        </div>
+  <main id="contenuto" class="fade-in">
+    <!-- Gallery: Utilizza CSS Grid, niente più div separati per le righe -->
+    <section class="gallery" aria-label="Galleria Partner / Foto" role="list">
+      
+      <div class="photo-box" role="listitem">
+        <a href="https://www.treccanilibri.it" target="_blank" rel="noopener">
+          <img src="immagini/Treccani_Libri_logo.png" alt="Treccani Libri logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://edizioniepoke.it" target="_blank" rel="noopener">
+          <img src="immagini/Edizioni_Epoké_logo.png" alt="Edizioni Epoké logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.amaldinovi.edu.it" target="_blank" rel="noopener">
+          <img src="immagini/Liceo_Amaldi_Novi_logo.png" alt="Liceo Amaldi Novi logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.istitutobalbo.edu.it" target="_blank" rel="noopener">
+          <img src="immagini/Istituto_Balbo_logo.png" alt="Istituto Balbo logo" loading="lazy" />
+        </a>
       </div>
 
-      <!-- RIGA 2: 4 foto -->
-      <div class="gallery-row four" role="list">
-        <div class="photo-box" role="listitem">
-          <a href="https://www.comune.cellamonte.al.it" target="_blank" rel="noopener">
-            <img src="Comune_CellaMonte_logo.png" alt="Comune di Cella Monte logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://www.fondazioneacos.it" target="_blank" rel="noopener">
-            <img src="Fondazione_Acos_Cultura_logo.png" alt="Fondazione Acos Cultura logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://fondoambiente.it/luoghi/centro-comunale-di-cultura-g-capurro-biblioteca-civica-e-archivio-storico-comunale-di-novi-liure" target="_blank" rel="noopener">
-            <img src="Biblioteca_Cultura_Capurro_logo.png" alt="Biblioteca Cultura Capurro logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://www.ubiklibri.it/home.html" target="_blank" rel="noopener">
-            <img src="Librerie_UBIK_logo.png" alt="Librerie UBIK logo" loading="lazy" />
-          </a>
-        </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.comune.cellamonte.al.it" target="_blank" rel="noopener">
+          <img src="immagini/Comune_CellaMonte_logo.png" alt="Comune di Cella Monte logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.fondazioneacos.it" target="_blank" rel="noopener">
+          <img src="immagini/Fondazione_Acos_Cultura_logo.png" alt="Fondazione Acos Cultura logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://fondoambiente.it/luoghi/centro-comunale-di-cultura-g-capurro-biblioteca-civica-e-archivio-storico-comunale-di-novi-liure" target="_blank" rel="noopener">
+          <img src="immagini/Biblioteca_Cultura_Capurro_logo.png" alt="Biblioteca Cultura Capurro logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.ubiklibri.it/home.html" target="_blank" rel="noopener">
+          <img src="immagini/Librerie_UBIK_logo.png" alt="Librerie UBIK logo" loading="lazy" />
+        </a>
       </div>
 
-      <!-- RIGA 3: 4 foto (con Pandora in posizione 10) -->
-      <div class="gallery-row four" role="list">
-        <div class="photo-box" role="listitem">
-          <a href="https://www.pandorarivista.it/" target="_blank" rel="noopener">
-            <img src="Pandora_rivista_logo.png" alt="Pandora rivista logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://www.italychina.org/" target="_blank" rel="noopener">
-            <img src="Fondazione_Itachi_logo.png" alt="Fondazione Itachi logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://lostruzzoascuola.it/info/" target="_blank" rel="noopener">
-            <img src="Struzzo_Enaudi_logo.png" alt="Struzzo Einaudi logo" loading="lazy" />
-          </a>
-        </div>
-        <div class="photo-box" role="listitem">
-          <a href="https://fondazionecesarepavese.it/" target="_blank" rel="noopener">
-            <img src="Fondazione_Pavese_logo.png" alt="Fondazione Pavese logo" loading="lazy" />
-          </a>
-        </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.pandorarivista.it/" target="_blank" rel="noopener">
+          <img src="immagini/Pandora_rivista_logo.png" alt="Pandora rivista logo" loading="lazy" />
+        </a>
       </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://www.italychina.org/" target="_blank" rel="noopener">
+          <img src="immagini/Fondazione_Itachi_logo.png" alt="Fondazione Itachi logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://lostruzzoascuola.it/info/" target="_blank" rel="noopener">
+          <img src="immagini/Struzzo_Enaudi_logo.png" alt="Struzzo Einaudi logo" loading="lazy" />
+        </a>
+      </div>
+      <div class="photo-box" role="listitem">
+        <a href="https://fondazionecesarepavese.it/" target="_blank" rel="noopener">
+          <img src="immagini/Fondazione_Pavese_logo.png" alt="Fondazione Pavese logo" loading="lazy" />
+        </a>
+      </div>
+
     </section>
   </main>
 
@@ -287,5 +168,35 @@
     © 2025 PerCorsi – Tutti i diritti riservati.<br>
     <a href="contatti.html">Contattaci</a>
   </footer>
+
+  <!-- Script per Mobile Menu e Fade-in -->
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        menuBtn.textContent = '✕';
+      } else {
+        menuBtn.textContent = '☰';
+      }
+    });
+
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>

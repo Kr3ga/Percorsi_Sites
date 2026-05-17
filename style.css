@@ -1,0 +1,308 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+  background-color: #983128;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+  z-index: 1;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(86,0,20,0.7);
+  z-index: -1;
+  transition: width 0.4s cubic-bezier(.4,0,.2,1);
+  border-radius: 8px;
+}
+
+nav ul li a:hover::before {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+nav ul li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Banner Container */
+.banner-container {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin-top: 55px; 
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Contenitore Testo e Bottone (Flexbox) */
+.text-container {
+  position: absolute;
+  top: 75%;
+  left: 83%; /* Spostato sulla destra come nel design originale */
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Allinea testo e bottone a sinistra nel blocco */
+  color: white;
+  width: 90%;
+  max-width: 450px;
+  z-index: 11;
+}
+
+.text-container h2 {
+  margin: 0 0 10px 0; 
+  font-size: clamp(24px, 4vw, 40px); /* Testo fluido: scala con lo schermo */
+  font-weight: bold;
+}
+
+.text-container p {
+  margin: 0 0 20px 0; /* Spazio in basso per separare dal bottone */
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.4;
+}
+
+/* Bottone sotto il testo */
+.scroll-button {
+  display: inline-block;
+  background-color: white;
+  color: black;
+  padding: clamp(10px, 1.5vw, 15px) clamp(20px, 3vw, 30px);
+  font-size: clamp(16px, 1.5vw, 24px);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.scroll-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+  padding: 80px 20px;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  background-color: #983128;
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 22px;
+  margin-top: 60px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+/* --- TABLET (Schermi inferiori a 1024px) --- */
+@media (max-width: 1024px) {
+     .nav-container {
+    justify-content: flex-end;
+  }
+  nav ul li a {
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+  
+  /* Centralizza tutto su schermi medi */
+  .text-container {
+    left: 80%;
+    align-items: center; /* Centra orizzontalmente testo e bottone */
+    text-align: center;
+    max-width: 20%;
+  }
+
+
+  /* Aggiunta facoltativa di un'ombra al testo per maggior leggibilità sull'immagine su mobile */
+  .text-container h2,
+  .text-container p {
+    font-size: 12px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+
+  .text-container .scroll-button {
+      display: inline-block;
+  background-color: white;
+  color: black;
+  padding: clamp(5px, 0.75vw, 7.5px) clamp(20px, 3vw, 30px);
+  font-size: clamp(8px, 0.7vw, 12px);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  white-space: nowrap;
+
+}
+}
+
+/* --- SMARTPHONE (Schermi inferiori a 768px) --- */
+@media (max-width: 768px) {
+  .nav-container {
+    justify-content: flex-end;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  nav ul {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 100%;
+    background-color: #983128;
+    gap: 0;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  nav ul li a {
+    font-size: 18px;
+    padding: 15px 0;
+    display: block;
+    border-radius: 0;
+  }
+
+  .banner-container {
+    margin-top: 50px; 
+  }
+
+  /* Su mobile manteniamo il blocco sempre SULL'IMMAGINE, centrato, scalando bene */
+  .text-container {
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+
+    color: white; /* Il testo rimane bianco per risaltare sull'immagine */
+    margin: 0;
+
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Aggiunta facoltativa di un'ombra al testo per maggior leggibilità sull'immagine su mobile */
+  .text-container h2,
+  .text-container p {
+    font-size: 10px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+.text-container .scroll-button {
+      display: inline-block;
+  background-color: white;
+  color: black;
+  padding: clamp(5px, 0.75vw, 7.5px) clamp(20px, 3vw, 30px);
+  font-size: clamp(8px, 0.7vw, 12px);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  white-space: nowrap;
+
+}
+  footer {
+    font-size: 16px;
+    padding: 20px 15px;
+  }
+}
