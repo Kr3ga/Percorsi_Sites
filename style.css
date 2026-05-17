@@ -282,7 +282,7 @@ footer a {
   /* Aggiunta facoltativa di un'ombra al testo per maggior leggibilità sull'immagine su mobile */
   .text-container h2,
   .text-container p {
-    font-size: 10px;
+    font-size: 5px;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
   }
 .text-container .scroll-button {
