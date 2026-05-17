@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CONTATTI - PERCORSI</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Divider line */
+    .divider {
+      height: 4px;
+      background: #983128;
+      border: none;
+      width: 80%;
+      max-width: 900px;
+      margin: 0 auto 28px;
+    }
+
+    /* Contact / Social containers */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    /* Griglia contatti desktop */
+    .contact-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 1fr 140px;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-image {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+    .contact-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .contact-item {
+      font-size: 22px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-item a,
+    .social-handle a {
+      color: #000 !important;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-item a:hover,
+    .social-handle a:hover { text-decoration: underline; }
+
+    /* Social Row desktop */
+    .social-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 140px;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 8px;
+    }
+    .social-handle {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .clickable { display: block; width: 100%; height: 100%; }
+
+    footer {
+      background-color: #983128;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 18px;
+      margin-top: 40px;
+    }
+    footer a { color: #fff; text-decoration: underline; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Apri menu">☰</button>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi_siamo.html">Chi Siamo</a></li>
+        <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
+        <li><a href="eventi.html">Eventi</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="banner-container">
+    <img src="immagini/Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />    
+    <div class="text-container">
+      <h2>Contatti</h2>
+      <p>Entra in contatto con l'Associazione PerCorsi. Resta aggiornato sulle nostre attività!</p>
+          <a href="#contenuto" class="scroll-button">Scopri di più</a>
+    </div>
+  </div>
+
+  <main id="contenuto">
+    <section class="section" aria-label="Contatti">
+      <h2 class="section-title"></h2>
+
+      <div class="contact-row" role="group" aria-label="Informazioni contatto">
+        <div class="contact-image" style="justify-self:start;">
+          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+            <img src="immagini/Logo_Gmail.png" alt="logo email" />
+          </a>
+        </div>
+
+        <div class="contact-item left" aria-label="Email">
+          <a href="mailto:percorsi.cultura@gmail.com">percorsi.cultura@gmail.com</a>
+        </div>
+
+        <div class="contact-item right" aria-label="Telefono">
+          <a href="tel:+393472220401">+39 347 222 0401</a>
+        </div>
+
+        <div class="contact-image" style="justify-self:end;">
+          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+            <img src="immagini/Logo_Whatsapp.png" alt="logo whatsapp" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Social">
+      <hr class="divider" />
+      <h2 class="section-title">SOCIAL</h2>
+
+      <div class="social-row" role="group" aria-label="Social links">
+        <div class="contact-image" style="justify-self:start;">
+          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+            <img src="immagini/Logo_Facebook.png" alt="social facebook" />
+          </a>
+        </div>
+
+        <div class="social-handle" role="link">
+          <a href="https://www.instagram.com/percorsi.cultura?igsh=c2V0c3RtYjM5Y21n" target="_blank" rel="noopener">@percorsi.cultura</a>
+        </div>
+
+        <div class="contact-image" style="justify-self:end;">
+          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+              <img src="immagini/Logo_Instagram.png" alt="social instagram" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 PerCorsi – Tutti i diritti riservati.<br />
+    <a href="contatti.html">Contattaci</a>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        menuBtn.textContent = '✕';
+      } else {
+        menuBtn.textContent = '☰';
+      }
+    });
+  </script>
+</body>
+</html>

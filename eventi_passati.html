@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventi Passati - PERCORSI</title>
+  <link rel="stylesheet" href="style.css">
+<style>
+    /* Fade-in effetto allo scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background-color: #983128;
+      color: #fff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 18px;
+      margin-top: 60px;
+    }
+    footer a { color: #fff; text-decoration: underline; font-weight: bold; }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-container">
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Apri menu">☰</button>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi_siamo.html">Chi Siamo</a></li>
+        <li><a href="cosa_facciamo.html">Cosa Facciamo</a></li>
+        <li><a href="eventi.html">Eventi</a></li>
+        <li><a href="partner.html">Partner</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="banner-container">
+    <img src="immagini/Banner_sito_Percorsi.png" alt="Banner PerCorsi" class="banner" />
+    <div class="text-container">
+      <h2>Eventi Passati</h2>
+      <p>
+        Il cammino dell’associazione attraverso le iniziative realizzate. Tuffatevi alla scoperta del nostro percorso.
+      </p>
+          <a href="#contenuto" class="scroll-button">Scopri di più</a>
+    </div>
+  </div>
+
+  <div id="contenuto"></div>
+
+  <div class="content-area fade-in">
+    </div>
+
+  <footer>
+    © 2025 PerCorsi – Tutti i diritti riservati.<br>
+    <a href="contatti.html">Contattaci</a>
+  </footer>
+
+  <script>
+    // Gestione Menu Mobile (Apri/Chiudi a tendina)
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.getElementById('nav-links');
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      if (navLinks.classList.contains('active')) {
+        menuBtn.textContent = '✕';
+      } else {
+        menuBtn.textContent = '☰';
+      }
+    });
+
+    // Controllo elementi visibili con Intersection Observer (Fade-In)
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.1 };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
+</body>
+</html>
