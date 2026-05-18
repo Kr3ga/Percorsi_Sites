@@ -123,55 +123,58 @@
   </div>
 
   <main id="contenuto">
-    <section class="section" aria-label="Contatti">
-      <h2 class="section-title"></h2>
+  <section class="section" aria-label="Contatti">
+    <h2 class="section-title"></h2>
 
-      <div class="contact-row" role="group" aria-label="Informazioni contatto">
-        <div class="contact-image" style="justify-self:start;">
+    <div class="contact-container-mobile" style="display: flex; flex-direction: column; gap: 20px; align-items: center; width: 100%;">
+      
+      <div class="contact-row-line" style="display: flex; align-items: center; gap: 10px; justify-content: center; width: 100%;">
+        <div class="contact-image">
           <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
             <img src="immagini/Logo_Gmail.png" alt="logo email" />
           </a>
         </div>
-
         <div class="contact-item left" aria-label="Email">
           <a href="mailto:percorsi.cultura@gmail.com">percorsi.cultura@gmail.com</a>
         </div>
+      </div>
 
-        <div class="contact-item right" aria-label="Telefono">
+      <div class="contact-row-line" style="display: flex; align-items: center; gap: 10px; justify-content: center; width: 100%;">
+        <div class="contact-item left" aria-label="Telefono">
           <a href="tel:+393472220401">+39 347 222 0401</a>
         </div>
-
-        <div class="contact-image" style="justify-self:end;">
+        <div class="contact-image left">
           <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
             <img src="immagini/Logo_Whatsapp.png" alt="logo whatsapp" />
           </a>
         </div>
       </div>
-    </section>
 
-    <section class="section" aria-label="Social">
-      <hr class="divider" />
-      <h2 class="section-title">SOCIAL</h2>
+    </div>
+  </section>
 
-      <div class="social-row" role="group" aria-label="Social links">
-        <div class="contact-image" style="justify-self:start;">
-          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
-            <img src="immagini/Logo_Facebook.png" alt="social facebook" />
-          </a>
-        </div>
-
-        <div class="social-handle" role="link">
-          <a href="https://www.instagram.com/percorsi.cultura?igsh=c2V0c3RtYjM5Y21n" target="_blank" rel="noopener">@percorsi.cultura</a>
-        </div>
-
-        <div class="contact-image" style="justify-self:end;">
-          <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
-              <img src="immagini/Logo_Instagram.png" alt="social instagram" />
-          </a>
-        </div>
+  <section class="section" aria-label="Social">
+    <hr class="divider" />
+    
+    <div class="social-row" role="group" aria-label="Social links" style="display: flex; align-items: center; gap: 10px; justify-content: center; width: 100%;">
+      <div class="contact-image">
+        <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+          <img src="immagini/Logo_Facebook.png" alt="social facebook" />
+        </a>
       </div>
-    </section>
-  </main>
+
+      <div class="social-handle" role="link">
+        <a href="https://www.instagram.com/percorsi.cultura?igsh=c2V0c3RtYjM5Y21n" target="_blank" rel="noopener">@percorsi.cultura</a>
+      </div>
+
+      <div class="contact-image">
+        <a class="clickable" href="#" aria-hidden="true" tabindex="-1">
+          <img src="immagini/Logo_Instagram.png" alt="social instagram" />
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
 
   <footer>
     © 2025 PerCorsi – Tutti i diritti riservati.<br />
