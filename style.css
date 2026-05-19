@@ -229,14 +229,8 @@ footer a {
   }
 
   .menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-  padding: 10px 20px;
-}
+    display: block;
+    z-index: 1001;
   }
 
   nav ul {
@@ -381,4 +375,3 @@ footer a {
     white-space: nowrap;    /* Impedisce al numero o alla mail di andare a capo a metà */
   }
 
-  /* ======================================================== */
