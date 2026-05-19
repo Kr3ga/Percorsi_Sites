@@ -174,16 +174,19 @@ footer a {
 @media screen and (min-width: 1024px) {
 
   .image-container {
-    width: 60px;      /* misura logo */
+    width: 60px;
     height: 60px;
-    margin-left: 20px; /* distanza da sinistra */
+
+    position: fixed;
+    right: 30px;   /* distanza dal bordo destro */
+    bottom: 30px;  /* distanza dal basso */
+    left: auto;
   }
 
   .image-container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-  }
 
 }
 
