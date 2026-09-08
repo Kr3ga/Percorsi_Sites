@@ -172,7 +172,7 @@ footer a {
 
 
 /* ==========================================================================
-   MEDIA QUERIES
+   MEDIA QUERIES (OTTIMIZZATE PER TESTI MOLTO PICCOLI)
    ========================================================================== */
 
 /* --- TABLET (Schermi inferiori a 1024px) --- */
@@ -180,38 +180,36 @@ footer a {
   .nav-container {
     justify-content: flex-end;
   }
-  nav ul li a {
-    font-size: 18px;
-    padding: 6px 12px;
-  }
   
   .text-container {
-    top: 80%; /* Alzato un goccio (da 85% a 80%) */
+    top: 80%; 
     left: 80%;
     align-items: center; 
     text-align: center;
-    max-width: 20%;
+    max-width: 25%;
   }
 
-  .text-container h2,
+  .text-container h2 {
+    font-size: 10px; /* Rimpicciolito molto */
+    margin-bottom: 4px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  }
+
   .text-container p {
-    font-size: 12px;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    font-size: 8px; /* Rimpicciolito molto */
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
   }
 
   .text-container .scroll-button {
-    padding: clamp(5px, 0.75vw, 7.5px) clamp(20px, 3vw, 30px);
-    font-size: clamp(8px, 0.7vw, 12px);
-    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 7px; /* Bottone molto piccolo */
+    border-radius: 4px;
   }
 }
 
 /* --- SMARTPHONE (Schermi inferiori a 768px) --- */
 @media (max-width: 768px) {
-  .nav-container {
-    justify-content: flex-end;
-  }
-
   .menu-toggle {
     display: block;
     z-index: 1001;
@@ -227,108 +225,72 @@ footer a {
     background-color: #983128;
     gap: 0;
     padding: 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
 
   nav ul.active {
     display: flex;
   }
 
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
   nav ul li a {
     font-size: 16px;
     padding: 15px 0;
-    display: block;
-    border-radius: 0;
-  }
-
-  .banner-container {
-    margin-top: 52px; 
   }
 
   .text-container {
     position: absolute;
-    top: 73%; /* Alzato un goccio (da 80% a 73%) */
+    top: 73%; 
     left: 75%; 
     transform: translate(-50%, -50%);
-    width: 45%; 
-    color: white;
-    margin: 0;
+    width: 50%; 
     text-align: left; 
     display: flex;
     flex-direction: row; 
-    flex-wrap: wrap; 
     align-items: center;
     justify-content: center;
-    gap: 10px; 
+    gap: 6px; 
   }
 
   .text-container-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
   }
 
   .text-container h2 {
-    font-size: 13px;
+    font-size: 8px; /* Testo minuscolo */
     margin: 0;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   }
 
   .text-container p {
-    font-size: 8px;
+    font-size: 6px; /* Testo minuscolo */
     margin: 0;
-    line-height: 1.2;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
   }
 
   .scroll-button {
-    padding: 5px 10px; 
-    font-size: 8px; 
-    border-radius: 4px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    padding: 3px 6px; /* Bottone minuscolo */
+    font-size: 6px; 
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 
+  /* Sezioni Locandina */
   .locandina-section {
     width: 100%;
-    max-width: 100vw;
-    margin: 0;
-    padding: 20px 0;
     overflow: hidden;
-    box-sizing: border-box;
+    padding: 20px 0;
   }
 
   .locandina-wrapper {
     width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
     padding: 0 15px;
     box-sizing: border-box;
-  }
-
-  .locandina-figure {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
   }
 
   .locandina-figure img {
     max-width: 100%;
     height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-
-  .contact-item a, 
-  .social-handle a {
-    font-size: 16px;
-    white-space: nowrap;
   }
 }
