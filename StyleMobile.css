@@ -500,10 +500,18 @@ footer a {
 }
 
 @media (max-width: 991px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden;
+  }
+
   .banner-container {
     background-color: #983128;
-    padding: 30px 10px;
+    padding: 30px 4px;
     margin-top: 50px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .banner {
@@ -517,19 +525,21 @@ footer a {
     transform: none;
     margin: 0 auto;
     width: 100%;
-    padding: 0 5px;
+    max-width: 100%;
+    padding: 0 4px;
     box-sizing: border-box;
   }
 
   .nav-container {
     justify-content: flex-end;
-    padding: 5px 8px;
+    padding: 5px 4px;
     box-sizing: border-box;
   }
 
   .menu-toggle,
   #mobile-menu-btn {
     display: block;
+    padding: 10px 10px;
   }
 
   nav ul,
@@ -557,7 +567,7 @@ footer a {
 
   nav ul li a {
     font-size: 18px;
-    padding: 12px 10px;
+    padding: 12px 4px;
     display: block;
     border-radius: 0;
   }
@@ -583,7 +593,9 @@ footer a {
   .chi-siamo-container {
     font-size: 18px;
     margin: 30px auto 0 auto;
-    padding: 0 8px;
+    padding: 0 4px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .chi-siamo-container p {
@@ -592,12 +604,16 @@ footer a {
 
   .attivita-list-container {
     margin: 30px auto 20px auto;
-    padding: 0 8px;
+    padding: 0 4px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .box-attivita {
-    padding: 10px 12px;
+    padding: 10px 6px;
     margin: 15px auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .box-attivita summary {
@@ -606,7 +622,7 @@ footer a {
 
   .box-attivita div {
     font-size: 16px;
-    padding: 10px;
+    padding: 10px 6px;
   }
 
   .bottone-centrale {
@@ -619,7 +635,14 @@ footer a {
   }
 
   .locandina-section {
-    padding: 25px 8px;
+    padding: 25px 4px;
+    box-sizing: border-box;
+  }
+
+  .locandina-wrapper {
+    width: 100%;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .locandina-wrapper h3 {
@@ -628,15 +651,17 @@ footer a {
   }
 
   .locandina-details {
-    padding: 12px;
+    padding: 12px 6px;
     margin-top: 12px;
   }
 
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 8px;
-    padding: 8px;
+    gap: 6px;
+    padding: 4px;
     margin: 20px auto;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .photo-box {
@@ -644,13 +669,15 @@ footer a {
   }
 
   .divider {
-    width: 95%;
+    width: 98%;
     margin: 0 auto 16px;
   }
 
   .section {
     margin: 0 auto 20px;
-    padding: 0 8px;
+    padding: 0 4px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .contact-row,
@@ -658,13 +685,15 @@ footer a {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 0 8px;
+    padding: 0 4px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .contact-image {
     width: 90px;
     height: 70px;
-    padding: 4px;
+    padding: 2px;
   }
 
   .contact-item {
@@ -676,7 +705,7 @@ footer a {
   }
 
   footer {
-    padding: 20px 8px;
+    padding: 20px 4px;
     margin-top: 30px;
   }
 }
