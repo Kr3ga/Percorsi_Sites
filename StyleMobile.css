@@ -503,12 +503,14 @@ footer a {
   body {
     padding-left: 0;
     padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
     overflow-x: hidden;
   }
 
   .banner-container {
     background-color: #983128;
-    padding: 30px 4px;
+    padding: 30px 0;
     margin-top: 50px;
     width: 100%;
     box-sizing: border-box;
@@ -526,20 +528,20 @@ footer a {
     margin: 0 auto;
     width: 100%;
     max-width: 100%;
-    padding: 0 4px;
+    padding: 0;
     box-sizing: border-box;
   }
 
   .nav-container {
     justify-content: flex-end;
-    padding: 5px 4px;
+    padding: 5px 0;
     box-sizing: border-box;
   }
 
   .menu-toggle,
   #mobile-menu-btn {
     display: block;
-    padding: 10px 10px;
+    padding: 10px 5px;
   }
 
   nav ul,
@@ -567,7 +569,7 @@ footer a {
 
   nav ul li a {
     font-size: 18px;
-    padding: 12px 4px;
+    padding: 12px 0;
     display: block;
     border-radius: 0;
   }
@@ -593,7 +595,7 @@ footer a {
   .chi-siamo-container {
     font-size: 18px;
     margin: 30px auto 0 auto;
-    padding: 0 4px;
+    padding: 0;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -604,14 +606,14 @@ footer a {
 
   .attivita-list-container {
     margin: 30px auto 20px auto;
-    padding: 0 4px;
+    padding: 0;
     max-width: 100%;
     box-sizing: border-box;
   }
 
   .box-attivita {
-    padding: 10px 6px;
-    margin: 15px auto;
+    padding: 10px 0;
+    margin: 15px 0;
     width: 100%;
     box-sizing: border-box;
   }
@@ -622,7 +624,7 @@ footer a {
 
   .box-attivita div {
     font-size: 16px;
-    padding: 10px 6px;
+    padding: 10px 0;
   }
 
   .bottone-centrale {
@@ -635,7 +637,7 @@ footer a {
   }
 
   .locandina-section {
-    padding: 25px 4px;
+    padding: 25px 0;
     box-sizing: border-box;
   }
 
@@ -651,14 +653,14 @@ footer a {
   }
 
   .locandina-details {
-    padding: 12px 6px;
+    padding: 12px 0;
     margin-top: 12px;
   }
 
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
     gap: 6px;
-    padding: 4px;
+    padding: 0;
     margin: 20px auto;
     width: 100%;
     box-sizing: border-box;
@@ -669,13 +671,13 @@ footer a {
   }
 
   .divider {
-    width: 98%;
+    width: 100%;
     margin: 0 auto 16px;
   }
 
   .section {
     margin: 0 auto 20px;
-    padding: 0 4px;
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
   }
@@ -685,7 +687,7 @@ footer a {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 0 4px;
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
   }
@@ -693,7 +695,7 @@ footer a {
   .contact-image {
     width: 90px;
     height: 70px;
-    padding: 2px;
+    padding: 0;
   }
 
   .contact-item {
@@ -705,7 +707,7 @@ footer a {
   }
 
   footer {
-    padding: 20px 4px;
+    padding: 20px 0;
     margin-top: 30px;
   }
 }
