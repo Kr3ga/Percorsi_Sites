@@ -5,28 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eventi Passati - PERCORSI</title>
   <link rel="stylesheet" href="style.css">
-<style>
-    /* Fade-in effetto allo scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      background-color: #983128;
-      color: #fff;
-      text-align: center;
-      padding: 30px 10px;
-      font-size: 18px;
-      margin-top: 60px;
-    }
-    footer a { color: #fff; text-decoration: underline; font-weight: bold; }
-</style>
+  <link rel="stylesheet" href="StyleMobile.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -65,35 +45,5 @@
     <a href="contatti.html">Contattaci</a>
   </footer>
 
-  <script>
-    // Gestione Menu Mobile (Apri/Chiudi a tendina)
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
-
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      if (navLinks.classList.contains('active')) {
-        menuBtn.textContent = '✕';
-      } else {
-        menuBtn.textContent = '☰';
-      }
-    });
-
-    // Controllo elementi visibili con Intersection Observer (Fade-In)
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1 };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
 </body>
 </html>
