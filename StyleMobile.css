@@ -95,26 +95,6 @@ nav ul li a:hover {
   display: block;
 }
 
-@media (max-width: 991px) {
-  .banner-container {
-    background-color: #983128;
-    padding: 60px 20px;
-  }
-
-  .banner {
-    display: none;
-  }
-
-  .text-container {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-
 .text-container h2 {
   margin: 0 0 10px 0;
   font-size: 32px;
@@ -520,14 +500,30 @@ footer a {
 }
 
 @media (max-width: 991px) {
-  /* SFONDO MOBILE E TABLET */
+  .banner-container {
+    background-color: #983128;
+    padding: 30px 10px;
+    margin-top: 50px;
+  }
+
   .banner {
-    background-image: url('sfondo-mobile.jpg');
+    display: none;
+  }
+
+  .text-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
 
   .nav-container {
     justify-content: flex-end;
-    padding: 5px 15px;
+    padding: 5px 8px;
     box-sizing: border-box;
   }
 
@@ -561,17 +557,13 @@ footer a {
 
   nav ul li a {
     font-size: 18px;
-    padding: 14px 20px;
+    padding: 12px 10px;
     display: block;
     border-radius: 0;
   }
 
   nav ul li a::before {
     border-radius: 0;
-  }
-
-  .text-container {
-    top: 50%;
   }
 
   .text-container h2 {
@@ -590,11 +582,22 @@ footer a {
 
   .chi-siamo-container {
     font-size: 18px;
-    margin-top: 35px;
+    margin: 30px auto 0 auto;
+    padding: 0 8px;
   }
 
   .chi-siamo-container p {
     margin-bottom: 20px;
+  }
+
+  .attivita-list-container {
+    margin: 30px auto 20px auto;
+    padding: 0 8px;
+  }
+
+  .box-attivita {
+    padding: 10px 12px;
+    margin: 15px auto;
   }
 
   .box-attivita summary {
@@ -603,36 +606,65 @@ footer a {
 
   .box-attivita div {
     font-size: 16px;
+    padding: 10px;
+  }
+
+  .bottone-centrale {
+    margin: 25px 0 15px 0;
   }
 
   .bottone-centrale button {
     font-size: 20px;
-    padding: 14px 28px;
+    padding: 12px 20px;
+  }
+
+  .locandina-section {
+    padding: 25px 8px;
   }
 
   .locandina-wrapper h3 {
     font-size: 26px;
+    margin-bottom: 16px;
+  }
+
+  .locandina-details {
+    padding: 12px;
+    margin-top: 12px;
   }
 
   .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    padding: 8px;
+    margin: 20px auto;
   }
 
   .photo-box {
-    height: 130px;
+    height: 120px;
+  }
+
+  .divider {
+    width: 95%;
+    margin: 0 auto 16px;
+  }
+
+  .section {
+    margin: 0 auto 20px;
+    padding: 0 8px;
   }
 
   .contact-row,
   .social-row {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    padding: 0 8px;
   }
 
   .contact-image {
-    width: 100px;
-    height: 80px;
+    width: 90px;
+    height: 70px;
+    padding: 4px;
   }
 
   .contact-item {
@@ -640,6 +672,11 @@ footer a {
   }
 
   .social-handle {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  footer {
+    padding: 20px 8px;
+    margin-top: 30px;
   }
 }
