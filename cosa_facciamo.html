@@ -5,76 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>COSA FACCIAMO - PERCORSI</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-
-    /* Fade-in effetto */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Contenitore Lista Attività */
-    .attivita-list-container {
-      margin: 60px auto 40px auto;
-      max-width: 900px;
-      padding: 0 16px;
-    }
-
-    /* Box attività (Fisarmoniche) */
-    .box-attivita {
-      background-color: #983128;
-      color: #fff;
-      padding: 15px 25px;
-      margin: 25px auto;
-      width: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
-      position: relative;
-      transition: transform 0.2s cubic-bezier(.4,0,.2,1), box-shadow 0.25s cubic-bezier(.4,0,.2,1);
-    }
-    .box-attivita:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 24px rgba(86,0,20,0.25), 0 1.5px 8px rgba(0,0,0,0.13);
-      z-index: 2;
-    }
-    .box-attivita summary {
-      cursor: pointer;
-      font-weight: bold;
-      color: #fff;
-      font-size: 28px;
-      padding: 10px 0;
-      outline: none;
-    }
-    .box-attivita[open] summary {
-      color: #ffd6c7;
-    }
-    .box-attivita div {
-      margin-top: 15px;
-      color: #fff;
-      font-size: 20px;
-      text-align: left;
-      background: rgba(0,0,0,0.15);
-      padding: 15px;
-      border-radius: 8px;
-      line-height: 1.5;
-    }
-
-    footer {
-      background-color: #983128;
-      color: #fff;
-      text-align: center;
-      padding: 30px 10px;
-      font-size: 18px;
-      margin-top: 60px;
-    }
-    footer a { color: #fff; text-decoration: underline; font-weight: bold; }
-    
-  </style>
+  <link rel="stylesheet" href="StyleMobile.css">
+  <script src="script.js"></script>
 </head>
 <body>
 
@@ -169,35 +101,6 @@
     <a href="contatti.html">Contattaci</a>
   </footer>
 
-  <script>
-    // Gestione Menu Mobile
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const navLinks = document.getElementById('nav-links');
-
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      if (navLinks.classList.contains('active')) {
-        menuBtn.textContent = '✕';
-      } else {
-        menuBtn.textContent = '☰';
-      }
-    });
-
-    // Effetto Fade-in allo scroll
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1 };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-  </script>
 </body>
+
 </html>
